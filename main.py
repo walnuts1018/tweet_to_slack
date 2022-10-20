@@ -34,7 +34,7 @@ with open('last_id.txt', 'r') as f:
     last_id=int(f.read())
 while True:
     tweets_ps=[]
-    for tweets in api.search_tweets(q="ごはん OR ご飯 from:walnuts1018",since_id=last_id,result_type="recent"):
+    for tweets in api.search_tweets(q="ごはん OR ご飯 from:walnuts1018",since_id=last_id+1,result_type="recent"):
         tweets_ps.insert(0,tweets.id)
         print(tweets)
     for i in tweets_ps:
