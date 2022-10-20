@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 import requests
 import time
+
 #twitter
 AK  = config.API_KEY
 AKS = config.API_KEY_SECRET
@@ -35,11 +36,12 @@ while True:
     tweets_ps=[]
     for tweets in api.search_tweets(q="ごはん OR ご飯 from:walnuts1018",since_id=last_id,result_type="recent"):
         tweets_ps.insert(0,tweets.id)
+        print(tweets)
     for i in tweets_ps:
         post_message("https://twitter.com/walnuts1018/status/"+str(tweets.id))
 
     if tweets_ps!=[]:
         with open('last_id.txt', 'w') as f:
             f.write(str(tweets_ps[-1]))
-    time.sleep(30*60)
+    time.sleep(5*60)
 
