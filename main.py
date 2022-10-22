@@ -43,5 +43,6 @@ while True:
     if tweets_ps!=[]:
         with open('last_id.txt', 'w') as f:
             f.write(str(tweets_ps[-1]))
+        last_id=tweets_ps[-1]
     time.sleep(5*60)
 
